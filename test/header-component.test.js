@@ -1,4 +1,4 @@
-import { makeHeader } from '../src/header-component.js';
+import { makeHeader, makeProfile } from '../src/header-component.js';
 
 const test = QUnit.test;
 
@@ -20,15 +20,6 @@ test('Creating Header', assert => {
     assert.htmlEqual(result, expected);
 });
 
-function makeProfile() {
-    return /*html*/ `
-        <div class="profile">
-            <img src="../assets/default-avatar.png">
-            <span>Goodnuff Frick</span>
-            <button>Sign out</button>
-        </div>
-    `;
-}
 
 test('make profile', assert => {
     // arrange
@@ -45,8 +36,8 @@ test('make profile', assert => {
         </div>
     `;
     // act
-    const result = makeProfile();
+    const result = makeProfile(user);
 
     // assert
-    assert.equal(result, expected);
+    assert.htmlEqual(result, expected);
 });

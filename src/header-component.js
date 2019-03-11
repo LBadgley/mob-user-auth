@@ -1,6 +1,4 @@
-// const headerContainer = document.getElementById('header-container');
-
-// const dom = makeHeader();
+import { auth } from './firebase.js';
 
 export function makeHeader() {
     const html = /*html*/ `
@@ -15,3 +13,35 @@ export function makeHeader() {
 }
 
 // headerContainer.appendChild(dom);
+
+export function makeProfile(user) {
+    const html = /*html*/ `
+        <div class="profile">
+            <img src="${user.photoURL}">
+            <span>${user.displayName}</span>
+            <button>Sign out</button>
+        </div>
+    `;
+
+    const template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content;
+}
+
+function loadHeader() {
+    const headerContainer = document.getElementById('header-container');
+    const dom = makeHeader();
+    headerContainer.appendChild(dom);
+
+    auth.onAuthStateChanged(user => {
+        if(user) {
+            const userNameDisplay = document.getElementById('user-name');
+            userNameDisplay.textContent = user.displayName;
+            const profileDisplay = document.getElementById('user-profile');
+            profileDisplay.src = user.photoURL;
+        }
+        else {
+            // no user
+        }
+    });
+}
