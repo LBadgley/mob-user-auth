@@ -1,4 +1,5 @@
 import { makeHeader } from '../src/header-component.js';
+
 const test = QUnit.test;
 
 QUnit.module('TESTING OF HEADER CREATION');

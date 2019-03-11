@@ -1,3 +1,8 @@
+const headerContainer = document.getElementById('header-container');
+
+const dom = makeHeader();
+headerContainer.appendChild(dom);
+
 export function makeHeader() {
     const html = /*html*/ `
         <div class="profile">
