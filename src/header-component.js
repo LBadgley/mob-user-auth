@@ -19,7 +19,7 @@ export function makeProfile(user) {
 
     const html = /*html*/ `
         <div class="profile">
-            <img src="${user.photoURL}">
+            <img src="${avatar}">
             <span>${user.displayName}</span>
             <button>Sign out</button>
         </div>
