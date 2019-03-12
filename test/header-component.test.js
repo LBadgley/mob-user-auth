@@ -41,3 +41,23 @@ test('make profile', assert => {
     // assert
     assert.htmlEqual(result, expected);
 });
+
+test('make user profile with default avatar', assert => {
+    // arrange
+    const user = {
+        displayName: 'Goodnuff Frick',
+        photoURL: null
+    };
+
+    const expected = /*html*/ `
+        <div class="profile">
+            <img src="./assets/default-avatar.png">
+            <span>Goodnuff Frick</span>
+            <button>Sign out</button>
+        </div>
+        `;
+    // act
+    const dom = makeProfile(user);
+    // assert
+    assert.htmlEqual(dom, expected);
+});
