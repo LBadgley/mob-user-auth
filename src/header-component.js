@@ -15,6 +15,8 @@ export function makeHeader() {
 // headerContainer.appendChild(dom);
 
 export function makeProfile(user) {
+    const avatar = user.photoURL || './assets/default-avatar.png';
+
     const html = /*html*/ `
         <div class="profile">
             <img src="${user.photoURL}">
@@ -53,7 +55,6 @@ export default function loadHeader(options) {
         else {
             // no user
             window.location = './auth.html';
-            console.log('no user, connect to auth.html');
         }
     });
 }
