@@ -48,6 +48,7 @@ export default function loadHeader(options) {
         }
         else {
             // no user
+            window.location = './auth.html';
             console.log('no user, connect to auth.html');
         }
     });

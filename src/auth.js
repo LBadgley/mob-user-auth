@@ -15,5 +15,5 @@ ui.start('#firebaseui-auth-container', {
     //where do we go on success
     signInSuccessUrl: './',
     //don't show google account chooser
-    credentialHelper: firebaseui.auth.credentialHelper.NONE
+    credentialHelper: firebaseui.auth.CredentialHelper.NONE
 });
